@@ -98,7 +98,13 @@ img{display:block}
 .subs p{grid-column:2;font-size:13px;color:var(--ink)}
 .subs .sub-extra{grid-column:2;display:flex;flex-direction:column;gap:8px;margin-top:6px}
 
+.fine{font-size:11.5px;color:var(--text);margin-top:10px;line-height:1.8}
+.items{flex-direction:row !important;gap:14px !important;flex-wrap:wrap}
+.item{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;width:84px}
+.item svg,.item img{width:72px;height:72px;background:var(--paper);border-radius:50%;padding:6px;object-fit:contain}
+.item figcaption{font-size:11px;color:var(--ink);letter-spacing:.06em}
 /* schedule */
+.day-ill{width:100%;max-width:200px;height:auto;margin:-14px auto 4px}
 .schedule{padding-block:72px 40px;display:flex;flex-direction:column;gap:36px}
 .days{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;margin:0;padding:0}
 .day{background:var(--paper);border-radius:999px 999px 6px 6px;border:1px solid var(--line);padding:40px 22px 28px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
@@ -204,7 +210,7 @@ footer a{font-family:var(--f-en);font-size:10px;letter-spacing:.24em;color:var(-
   <div class="label"><span class="en">What we promise</span><h2 id="promise-h" style="font-size:17px">はじめから決まっていること</h2></div>
   <div class="promise-grid">
     <div><span class="num">01.</span><h3>破損してもご負担0円</h3><p>規約の範囲内のご使用なら、後日の請求はありません。保証はレンタル料金に含まれています。</p></div>
-    <div><span class="num">02.</span><h3>返送は業者を選べます</h3><p>集荷でも持ち込みでもOK。返送日の最大19時までに出せば大丈夫です。</p></div>
+    <div><span class="num">02.</span><h3>返送は集荷でも持ち込みでもOK</h3><p>ヤマト運輸は最大19時まで、ゆうパックはお近くの郵便局の当日発送の時間内にご返送ください。</p></div>
     <div><span class="num">03.</span><h3>次回1,000円OFF</h3><p>返送をLINEで報告すると、次のご注文で使えるクーポンをその場でお送りします。</p></div>
   </div>
 </section>
@@ -214,7 +220,7 @@ footer a{font-family:var(--f-en);font-size:10px;letter-spacing:.24em;color:var(-
     <div class="toc-card bg-mint"><span class="en coral">Step 01</span><h3>予約する</h3><p>デザインと日程を選んで注文</p><a class="pill light" href="#step1">Read more</a></div>
     <div class="toc-card bg-peach"><span class="en coral">Step 02</span><h3>受け取る</h3><p>ご利用日の前日にお届け</p><a class="pill light" href="#step2">Read more</a></div>
     <div class="toc-card bg-butter"><span class="en coral">Step 03</span><h3>飾って撮る</h3><p>撮影のコツは3つだけ</p><a class="pill light" href="#step3">Read more</a></div>
-    <div class="toc-card bg-blush"><span class="en coral">Step 04</span><h3>返送する</h3><p>箱に戻して19時までに</p><a class="pill light" href="#step4">Read more</a></div>
+    <div class="toc-card bg-blush"><span class="en coral">Step 04</span><h3>返送する</h3><p>箱に戻して当日返送</p><a class="pill light" href="#step4">Read more</a></div>
   </div>
 </nav>
 
@@ -228,10 +234,25 @@ footer a{font-family:var(--f-en);font-size:10px;letter-spacing:.24em;color:var(-
         <li><span class="n">1.</span><h3>デザインを選ぶ</h3><p>お誕生日・ハーフバースデーなど、記念日に合わせて選びます。写真を押すと商品ページが開きます。</p></li>
         <li><span class="n">2.</span><h3>日程を選ぶ</h3><p><strong>2泊3日が基本</strong>です。ご利用日の<strong>前日にお届け</strong>し、ご利用日の翌日に返送していただきます。通常は金・土・日、平日はLINEでご相談ください。</p>
           <div class="sub-extra"><p class="note">人気のデザインと土日は、2ヶ月ほど前から埋まりはじめます。</p></div></li>
-        <li><span class="n">3.</span><h3>お助けアイテムを追加（必要な方だけ）</h3><p>お座りがまだ安定しないお子さまには、クーファン・バンボ・チェアもレンタルできます。</p></li>
-        <li><span class="n">4.</span><h3>注文・お支払い</h3><p>注文確認メールが自動で届きます。届かないときは迷惑メールフォルダもご確認ください。ご注文後は、LINEの「ご注文の報告」から一言お知らせください。</p>
-          <div class="sub-extra"><a class="pill" href="#">LINEで注文を報告 <span class="todo">URL</span></a></div></li>
-        <li><span class="n">5.</span><h3>発送のお知らせを待つ</h3><p>発送が済むと、追跡番号つきのメールをお送りします。大阪府から全国へお届けします。北海道・沖縄・離島へのお届けは、追加送料1,500円がかかります。</p></li>
+        <li><span class="n">3.</span><h3>お助けアイテムを追加（必要な方だけ）</h3><p>お座りがまだ安定しないお子さまには、バンボ・クーファン・ラタンチェアもレンタルできます。</p>
+          <!-- 写真に差しかえるときは、各 <svg> を <img src="img/bumbo.png" alt="バンボ"> のような背景透過PNGに置きかえる -->
+          <div class="sub-extra items">
+            <figure class="item">
+              <svg viewBox="0 0 80 80" role="img" aria-label="バンボ"><ellipse cx="40" cy="62" rx="26" ry="6" fill="#ecd8cb"/><path d="M13 58 Q12 30 40 27 Q68 30 67 58 Q40 66 13 58 Z" fill="#f8d2b4"/><ellipse cx="40" cy="44" rx="15" ry="8" fill="#f0b48f"/><ellipse cx="31" cy="54" rx="4" ry="2.6" fill="#e39f7b"/><ellipse cx="49" cy="54" rx="4" ry="2.6" fill="#e39f7b"/></svg>
+              <figcaption>バンボ</figcaption>
+            </figure>
+            <figure class="item">
+              <svg viewBox="0 0 80 80" role="img" aria-label="クーファン"><ellipse cx="40" cy="66" rx="30" ry="5" fill="#ecd8cb"/><path d="M22 42 Q24 20 40 20 Q56 20 58 42" fill="none" stroke="#c99a62" stroke-width="3"/><path d="M9 42 Q11 64 40 64 Q69 64 71 42 Z" fill="#e6c79c"/><g stroke="#cfa36c" stroke-width="1.4"><line x1="20" y1="44" x2="21" y2="60"/><line x1="30" y1="45" x2="30" y2="63"/><line x1="40" y1="45" x2="40" y2="64"/><line x1="50" y1="45" x2="50" y2="63"/><line x1="60" y1="44" x2="59" y2="60"/></g><ellipse cx="40" cy="42" rx="31" ry="7" fill="#d9b07c"/><ellipse cx="40" cy="41" rx="25" ry="4.5" fill="#fffdfb"/></svg>
+              <figcaption>クーファン</figcaption>
+            </figure>
+            <figure class="item">
+              <svg viewBox="0 0 80 80" role="img" aria-label="ラタンチェア"><ellipse cx="40" cy="72" rx="24" ry="4" fill="#ecd8cb"/><rect x="21" y="10" width="38" height="36" rx="16" fill="#e6c79c"/><g stroke="#cfa36c" stroke-width="1.3"><line x1="30" y1="13" x2="30" y2="44"/><line x1="40" y1="11" x2="40" y2="45"/><line x1="50" y1="13" x2="50" y2="44"/><line x1="23" y1="24" x2="57" y2="24"/><line x1="22" y1="34" x2="58" y2="34"/></g><g stroke="#c99a62" stroke-width="3" stroke-linecap="round"><line x1="24" y1="54" x2="21" y2="71"/><line x1="56" y1="54" x2="59" y2="71"/></g><rect x="17" y="44" width="46" height="11" rx="5" fill="#d9b07c"/></svg>
+              <figcaption>ラタンチェア</figcaption>
+            </figure>
+          </div></li>
+        <li><span class="n">4.</span><h3>注文・お支払い</h3><p>注文確認メールが自動で届きます。届かないときは迷惑メールフォルダもご確認ください。</p></li>
+        <li><span class="n">5.</span><h3>発送のお知らせを待つ</h3><p>発送が済むと、追跡番号つきのメールをお送りします。大阪府から全国へお届けします。</p>
+          <div class="sub-extra"><p class="fine">※北海道・沖縄・離島へのお届けは、追加送料1,500円がかかります。</p></div></li>
       </ol>
     </div>
   </div>
@@ -240,9 +261,47 @@ footer a{font-family:var(--f-en);font-size:10px;letter-spacing:.24em;color:var(-
 <section class="in schedule" aria-labelledby="sch-h">
   <div class="label"><span class="en">Schedule</span><h2 id="sch-h" style="font-size:17px">2泊3日の場合のスケジュール</h2></div>
   <ol class="days">
-    <li class="day"><span class="en">Day 1</span><h3>お届け日</h3><p>中身がそろっているか確認。夜のうちに仮置きしておくと、翌日あわてません。</p></li>
-    <li class="day hl"><span class="en">Day 2</span><h3>ご利用日</h3><p>飾って撮影する日。お子さまのご機嫌に合わせて、何度でも撮り直せます。</p></li>
-    <li class="day"><span class="en">Day 3</span><h3>返送日</h3><p>箱に戻して返送。当日発送になるよう、最大19時までにお出しください。</p></li>
+    <!-- イラストは写真に差しかえ可：<svg> を <img src="img/day1.jpg" alt="…"> に置きかえる -->
+    <li class="day">
+      <svg class="day-ill" viewBox="0 0 200 140" role="img" aria-label="配達の人が玄関で段ボール箱を手渡しているイラスト">
+        <ellipse cx="100" cy="128" rx="92" ry="6" fill="#ecd8cb"/>
+        <rect x="124" y="16" width="62" height="112" rx="3" fill="#fffdfb" stroke="#e8cfc0" stroke-width="2"/><circle cx="178" cy="74" r="2.5" fill="#d9b07c"/>
+        <rect x="139" y="64" width="28" height="50" rx="12" fill="#d3e6d8"/><rect x="143" y="108" width="8" height="18" rx="3" fill="#9c887b"/><rect x="155" y="108" width="8" height="18" rx="3" fill="#9c887b"/>
+        <circle cx="153" cy="50" r="11" fill="#f3d3bf"/><path d="M142 49 Q142 36 153 36 Q165 36 165 50 Q160 42 150 44 Z" fill="#8a6f60"/>
+        <rect x="44" y="60" width="30" height="52" rx="12" fill="#5f7d68"/><rect x="48" y="106" width="9" height="20" rx="3" fill="#4d6655"/><rect x="61" y="106" width="9" height="20" rx="3" fill="#4d6655"/>
+        <circle cx="59" cy="47" r="11" fill="#f3d3bf"/><path d="M47 45 Q48 33 59 33 Q71 33 71 45 Z" fill="#4d6655"/><rect x="62" y="42" width="14" height="4" rx="2" fill="#4d6655"/>
+        <rect x="80" y="66" width="44" height="32" rx="2" fill="#d9a979"/><rect x="80" y="78" width="44" height="6" fill="#c8955f"/>
+        <circle cx="80" cy="84" r="4.5" fill="#f3d3bf"/><circle cx="124" cy="84" r="4.5" fill="#f3d3bf"/>
+      </svg>
+      <span class="en">Day 1</span><h3>お届け日</h3><p>中身がそろっているか確認。夜のうちに仮置きしておくと、翌日あわてません。</p></li>
+    <li class="day hl">
+      <svg class="day-ill" viewBox="0 0 200 140" role="img" aria-label="飾りつけの前に座ったお子さまを、カメラで撮影しているイラスト">
+        <ellipse cx="100" cy="128" rx="92" ry="6" fill="#ecd8cb"/>
+        <path d="M14 18 Q60 60 110 22" fill="none" stroke="#a9c3dc" stroke-width="5" stroke-linecap="round"/>
+        <g><circle cx="16" cy="18" r="7" fill="#f2a6a0"/><circle cx="26" cy="13" r="5" fill="#a9c3dc"/><circle cx="108" cy="22" r="7" fill="#f2a6a0"/><circle cx="98" cy="16" r="5" fill="#a9c3dc"/><circle cx="60" cy="42" r="4" fill="#f9efbd"/></g>
+        <ellipse cx="64" cy="112" rx="20" ry="16" fill="#fffdfb"/><circle cx="64" cy="84" r="14" fill="#f3d3bf"/>
+        <path d="M55 72 L58 64 L64 70 L70 64 L73 72 Z" fill="#e8c27a"/>
+        <circle cx="59" cy="85" r="1.4" fill="#8a6f60"/><circle cx="69" cy="85" r="1.4" fill="#8a6f60"/><path d="M60 90 Q64 93 68 90" fill="none" stroke="#c0705d" stroke-width="1.4" stroke-linecap="round"/>
+        <rect x="140" y="70" width="30" height="54" rx="12" fill="#f8d2b4"/>
+        <circle cx="156" cy="56" r="11" fill="#f3d3bf"/><path d="M145 56 Q144 42 156 42 Q168 42 167 58 Q164 48 152 50 Z" fill="#8a6f60"/>
+        <rect x="124" y="58" width="22" height="16" rx="3" fill="#6f5a4d"/><circle cx="130" cy="66" r="5" fill="#9c887b"/><circle cx="130" cy="66" r="2.5" fill="#d3e6d8"/>
+        <circle cx="146" cy="72" r="4" fill="#f3d3bf"/>
+        <g stroke="#e8c27a" stroke-width="2" stroke-linecap="round"><line x1="112" y1="56" x2="104" y2="50"/><line x1="110" y1="66" x2="101" y2="66"/><line x1="112" y1="76" x2="104" y2="82"/></g>
+      </svg>
+      <span class="en">Day 2</span><h3>ご利用日</h3><p>飾って撮影する日。お子さまのご機嫌に合わせて、何度でも撮り直せます。</p></li>
+    <li class="day">
+      <svg class="day-ill" viewBox="0 0 200 140" role="img" aria-label="段ボール箱を配送業者の人に手渡しているイラスト">
+        <ellipse cx="100" cy="128" rx="92" ry="6" fill="#ecd8cb"/>
+        <rect x="6" y="56" width="58" height="46" rx="3" fill="#fffdfb" stroke="#e8cfc0" stroke-width="2"/><path d="M64 72 H80 Q86 72 88 80 L90 102 H64 Z" fill="#5f7d68"/><rect x="70" y="76" width="12" height="9" rx="2" fill="#d3e6d8"/>
+        <circle cx="22" cy="104" r="8" fill="#6f5a4d"/><circle cx="22" cy="104" r="3" fill="#ecd8cb"/><circle cx="74" cy="104" r="8" fill="#6f5a4d"/><circle cx="74" cy="104" r="3" fill="#ecd8cb"/>
+        <rect x="98" y="62" width="28" height="50" rx="12" fill="#5f7d68"/><rect x="101" y="106" width="9" height="20" rx="3" fill="#4d6655"/><rect x="114" y="106" width="9" height="20" rx="3" fill="#4d6655"/>
+        <circle cx="112" cy="49" r="11" fill="#f3d3bf"/><path d="M100 47 Q101 35 112 35 Q124 35 124 47 Z" fill="#4d6655"/><rect x="115" y="44" width="14" height="4" rx="2" fill="#4d6655"/>
+        <rect x="160" y="64" width="28" height="50" rx="12" fill="#d3e6d8"/><rect x="164" y="108" width="8" height="18" rx="3" fill="#9c887b"/><rect x="176" y="108" width="8" height="18" rx="3" fill="#9c887b"/>
+        <circle cx="174" cy="50" r="11" fill="#f3d3bf"/><path d="M163 49 Q163 36 174 36 Q186 36 186 50 Q181 42 171 44 Z" fill="#8a6f60"/>
+        <rect x="128" y="68" width="32" height="26" rx="2" fill="#d9a979"/><rect x="128" y="77" width="32" height="5" fill="#c8955f"/><rect x="134" y="84" width="12" height="7" fill="#fffdfb"/>
+        <circle cx="128" cy="82" r="4.5" fill="#f3d3bf"/><circle cx="160" cy="82" r="4.5" fill="#f3d3bf"/>
+      </svg>
+      <span class="en">Day 3</span><h3>返送日</h3><p>箱に戻して返送。ヤマト運輸は最大19時まで、ゆうパックはお近くの郵便局の当日発送の時間内にご返送ください。</p></li>
   </ol>
 </section>
 
@@ -291,7 +350,7 @@ footer a{font-family:var(--f-en);font-size:10px;letter-spacing:.24em;color:var(-
       <ol class="subs">
         <li><span class="n">1.</span><h3>届いた箱に戻す</h3><p>説明書ファイルの「梱包の手順」のとおりに。届いたときと同じくらいが目安です。</p></li>
         <li><span class="n">2.</span><h3>同梱の送り状を貼る</h3><p>返送用の送り状が箱に入っています。返送料はお客さまのご負担です。</p></li>
-        <li><span class="n">3.</span><h3>返送日の19時までに出す</h3><p>当日発送になるよう、最短の日時指定で。配送業者の指定はなく、集荷・持ち込みどちらでもOKです。</p></li>
+        <li><span class="n">3.</span><h3>返送日のうちに出す</h3><p>ヤマト運輸は<strong>最大19時まで</strong>にご返送ください。ゆうパックをご利用の場合は、お近くの郵便局の当日発送の時間内にご返送ください。集荷・持ち込みどちらでもOKです。</p></li>
         <li><span class="n">4.</span><h3>LINEで返送を報告する</h3><p>メニュー「返送の報告」から1分で完了。<strong>次回使える1,000円OFFクーポン</strong>をその場でお送りします。</p>
           <div class="sub-extra"><a class="pill" href="#">返送を報告する <span class="todo">URL</span></a></div></li>
       </ol>
