@@ -26,65 +26,57 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:transpa
 .logo small{display:block;font-weight:300;font-size:26px;letter-spacing:.5em;color:var(--head);margin-top:8px}
 </style></head><body>
 
-<!-- 1 hook (video) 0-2.5 -->
-<section class="scene" data-start="0" data-end="2.5"><div class="band">
-  <div class="ln jp" data-at=".2">おうちが、</div><div class="ln jp" data-at=".7">フォトスタジオに。</div></div></section>
-
-<!-- 2 question (peach) 2.5-5 -->
-<section class="scene solid" data-start="2.5" data-end="5" style="background:var(--peach)">
+<!-- 1 question (peach) 0-3.5 -->
+<section class="scene solid" data-start="0" data-end="3.5" style="background:var(--peach)">
   <div class="ln q" data-at="0">Q.</div>
-  <div class="ln jp" data-at=".25">レンタルって<br>むずかしそう…？</div>
-  <div class="ln ans" data-at="1.25">4ステップだけです</div></section>
+  <div class="ln jp" data-at=".2">レンタルって<br>どうしたらいいの？</div>
+  <div class="ln ans" data-at="1.3" style="font-size:54px;line-height:1.5;border-radius:48px">3日間の過ごし方を<br>ご紹介します</div></section>
 
-<!-- 3 step1 (mint) 5-8 -->
-<section class="scene solid" data-start="5" data-end="8" style="background:var(--mint)">
-  <div class="ln en" data-at="0">Step 01</div><div class="ln rule" data-at=".15"></div>
-  <div class="ln jp big" data-at=".3">予約する</div>
-  <div class="ln jp mid" data-at=".8">デザインと日程を<br>選んで注文</div>
-  <div class="ln sm" data-at="1.3">2泊3日〜</div></section>
+<!-- 2 day1 (mint) 3.5-6 -->
+<section class="scene solid" data-start="3.5" data-end="6" style="background:var(--mint)">
+  <div class="ln en" data-at="0">Day 1</div><div class="ln rule" data-at=".15"></div>
+  <div class="ln jp" data-at=".3">お誕生日の前日に<br>届きます</div>
+  <div class="ln sm" data-at=".9">箱を開けたら、中身を確認</div></section>
 
-<!-- 4 step2 (butter) 8-10.5 -->
-<section class="scene solid" data-start="8" data-end="10.5" style="background:var(--butter)">
-  <div class="ln en" data-at="0">Step 02</div><div class="ln rule" data-at=".15"></div>
-  <div class="ln jp big" data-at=".3">受け取る</div>
-  <div class="ln jp mid" data-at=".8">ご利用日の“前日”に<br>お届け</div>
-  <div class="ln sm" data-at="1.25">大阪から全国へ</div></section>
+<!-- 3 day1 night (video: decorating) 6-10.5 -->
+<section class="scene" data-start="6" data-end="10.5"><div class="band">
+  <div class="ln en" data-at=".1">Day 1 — night</div>
+  <div class="ln jp mid" data-at=".4">写真を見ながら飾りつけ</div>
+  <div class="ln jp" data-at="1.3" style="color:var(--coral)">「明日、<br>喜んでくれるかな」</div></div></section>
 
-<!-- 5 step3 (video) 10.5-14 -->
-<section class="scene" data-start="10.5" data-end="14"><div class="band">
-  <div class="ln en" data-at=".1">Step 03</div>
-  <div class="ln jp" data-at=".35" style="color:var(--coral)">飾って撮る</div>
-  <div class="ln jp mid" data-at=".9">説明書の写真を見ながら<br>並べるだけ</div></div></section>
+<!-- 4 day2 (butter) 10.5-12 -->
+<section class="scene solid" data-start="10.5" data-end="12" style="background:var(--butter)">
+  <div class="ln en" data-at="0">Day 2</div><div class="ln rule" data-at=".1"></div>
+  <div class="ln jp big" data-at=".25">お誕生日当日</div></section>
 
-<!-- 6 child (video) 14-17.5 -->
-<section class="scene" data-start="14" data-end="17.5"><div class="band" style="top:250px">
-  <div class="ln jp mid" data-at=".2">お子さまのご機嫌に<br>合わせて</div>
-  <div class="ln jp" data-at=".8" style="color:var(--coral)">何度でも撮り直せる</div></div></section>
+<!-- 5 morning (video: baby) 12-16 -->
+<section class="scene" data-start="12" data-end="16"><div class="band">
+  <div class="ln jp mid" data-at=".2">朝起きたら、</div>
+  <div class="ln jp" data-at=".7">いつものお部屋が<br>パーティー会場に</div></div></section>
 
-<!-- 7 step4 (blush) 17.5-21.5 -->
-<section class="scene solid" data-start="17.5" data-end="21.5" style="background:var(--blush)">
-  <div class="ln en" data-at="0">Step 04</div><div class="ln rule" data-at=".15"></div>
-  <div class="ln jp big" data-at=".3">返送する</div>
-  <div class="ln jp mid" data-at=".8">届いた箱に戻して<br>送り状を貼るだけ</div>
+<!-- 6 together (video: toddler) 16-19.5 -->
+<section class="scene" data-start="16" data-end="19.5"><div class="band" style="top:250px">
+  <div class="ln jp mid" data-at=".2">ご機嫌に合わせて、<br>何度でも</div>
+  <div class="ln jp" data-at=".8" style="color:var(--coral)">家族みんなで、<br>ゆっくりお祝い</div></div></section>
+
+<!-- 7 day3 (blush) 19.5-23.5 -->
+<section class="scene solid" data-start="19.5" data-end="23.5" style="background:var(--blush)">
+  <div class="ln en" data-at="0">Day 3</div><div class="ln rule" data-at=".15"></div>
+  <div class="ln jp" data-at=".3">「ありがとう」と<br>箱に戻して</div>
+  <div class="ln jp mid" data-at=".9">同梱の送り状で<br>返送するだけ</div>
   <div class="ln sm" data-at="1.5">ヤマト運輸は19時まで<br>ゆうパックは郵便局の当日発送の時間内に</div></section>
 
-<!-- 8 damage Q (peach) 21.5-25.5 -->
-<section class="scene solid" data-start="21.5" data-end="25.5" style="background:var(--peach)">
-  <div class="ln q" data-at="0">Q.</div>
-  <div class="ln jp" data-at=".25">壊しちゃったら…？</div>
-  <div class="ln jp big" data-at="1.25">ご負担0円</div>
-  <div class="ln sm" data-at="1.8">規約の範囲内のご使用なら<br>後日の請求はありません</div></section>
+<!-- 8 damage (peach) 23.5-26 -->
+<section class="scene solid" data-start="23.5" data-end="26" style="background:var(--peach)">
+  <div class="ln jp mid" data-at="0">もし壊してしまっても</div>
+  <div class="ln jp big" data-at=".5">ご負担0円</div>
+  <div class="ln sm" data-at="1.0">規約の範囲内のご使用なら</div></section>
 
-<!-- 9 coupon (mint) 25.5-28 -->
-<section class="scene solid" data-start="25.5" data-end="28" style="background:var(--mint)">
-  <div class="ln jp mid" data-at="0">返送をLINEで報告すると</div>
-  <div class="ln sm" data-at=".35">次回のご注文で使える</div>
-  <div class="ln jp big" data-at=".7">1,000円OFF</div></section>
-
-<!-- 10 closing (video) 28-31 -->
-<section class="scene" data-start="28" data-end="31"><div class="band">
-  <div class="ln logo" data-at=".2">gri birthdayart<small>BIRTHDAY RENTAL</small></div>
-  <div class="ln sm" data-at=".8" style="color:var(--ink)">ご予約はプロフィールのリンクから</div></div></section>
+<!-- 9 closing (video: baby) 26-30 -->
+<section class="scene" data-start="26" data-end="30"><div class="band">
+  <div class="ln jp mid" data-at=".2">おうちで過ごした<br>誕生日が</div>
+  <div class="ln jp" data-at=".8" style="color:var(--coral)">ずっと心に<br>残りますように</div>
+  <div class="ln logo" data-at="1.6" style="font-size:52px">gri birthdayart</div></div></section>
 
 <script>
 const scenes=[...document.querySelectorAll('.scene')];
