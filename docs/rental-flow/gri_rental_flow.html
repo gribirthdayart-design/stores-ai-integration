@@ -1,0 +1,297 @@
+<title>gri レンタルの流れ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap">
+<style>
+/* Layout: 1カラムの縦長ページ（スマホ前提）。4ステップを番号つきで縦に流し、要所だけカードで区切る */
+:root{
+  --bg:#fdf9f4; --card:#fffdfb; --line:#e8cfc0;
+  --head:#8a6f60; --text:#9c887b; --ink:#6f5a4d;
+  --accent:#c0705d; --accent-soft:#e5b8a5; --accent-wash:#f7e6dd;
+  --green:#5f7d68; --green-soft:#cfe3d4;
+  --todo-bg:#fff3c4; --todo-fg:#7a5b00;
+  --f-display:"Zen Maru Gothic","Noto Sans JP","Hiragino Maru Gothic ProN",sans-serif;
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#231d1a; --card:#2c2521; --line:#4a3c34;
+  --head:#e6cfc1; --text:#c9b5a8; --ink:#efe1d7;
+  --accent:#e08f7b; --accent-soft:#7a4a3e; --accent-wash:#3a2a24;
+  --green:#9cc4a6; --green-soft:#2f4136;
+  --todo-bg:#4a3d10; --todo-fg:#ffe08a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#231d1a; --card:#2c2521; --line:#4a3c34;
+  --head:#e6cfc1; --text:#c9b5a8; --ink:#efe1d7;
+  --accent:#e08f7b; --accent-soft:#7a4a3e; --accent-wash:#3a2a24;
+  --green:#9cc4a6; --green-soft:#2f4136;
+  --todo-bg:#4a3d10; --todo-fg:#ffe08a; color-scheme:dark}
+
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:15px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:640px;margin:0 auto;padding-block:40px 64px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);color:var(--head);text-wrap:balance;margin:0;line-height:1.5}
+p{margin:0}
+a{color:var(--accent)}
+.todo{background:var(--todo-bg);color:var(--todo-fg);border-radius:4px;padding:0 .3em;font-size:.9em;white-space:nowrap}
+.note{font-size:13px;color:var(--text)}
+strong{color:var(--ink)}
+
+/* hero */
+.hero{text-align:center;display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-size:12px;letter-spacing:.25em;color:var(--accent);font-weight:500}
+.hero h1{font-size:30px}
+.hero p{color:var(--text)}
+
+/* index */
+.toc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--head);
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 4px;font-size:13px;font-weight:500}
+.toc a b{font-family:var(--f-display);color:var(--accent);font-size:18px}
+.toc a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* promise band */
+.promise{background:var(--green-soft);border-radius:24px;padding:24px 20px;display:grid;gap:14px}
+.promise h2{font-size:19px;color:var(--green)}
+.promise ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.promise li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;color:var(--ink)}
+.promise li span{color:var(--green);font-weight:700}
+
+/* steps */
+.step{display:flex;flex-direction:column;gap:20px;scroll-margin-top:16px}
+.step-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.step-num{font-family:var(--f-display);font-size:34px;color:var(--accent);line-height:1}
+.step-head h2{font-size:22px}
+.sub{display:grid;grid-template-columns:28px 1fr;gap:4px 12px}
+.sub-num{width:28px;height:28px;border-radius:50%;background:var(--accent-wash);color:var(--accent);
+  font-weight:700;font-size:13px;display:grid;place-items:center;margin-top:2px}
+.sub h3{font-size:16px}
+.sub-body{grid-column:2;display:flex;flex-direction:column;gap:10px;min-width:0}
+.ph{border:1.5px dashed var(--line);border-radius:16px;background:var(--card);color:var(--text);
+  font-size:12px;text-align:center;padding:28px 12px}
+.btn{display:inline-block;align-self:flex-start;background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:999px;padding:10px 22px;font-weight:700;font-size:14px}
+.btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* timeline */
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px 20px;display:flex;flex-direction:column;gap:16px}
+.card h3{font-size:17px}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 0;border-top:1px dashed var(--line)}
+.tl li:first-child{border-top:0}
+.tl .day{font-family:var(--f-display);color:var(--accent);font-weight:700;line-height:1.4}
+.tl .day small{display:block;color:var(--text);font-family:var(--f-body);font-weight:400;font-size:11px}
+.tl .what b{color:var(--ink);display:block}
+.tl li.hl{background:var(--accent-wash);border-radius:12px;padding-inline:10px;margin-inline:-10px;border-top-color:transparent}
+
+/* table */
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+th{color:var(--head);font-weight:700;white-space:nowrap}
+
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px}
+details+details{margin-top:10px}
+summary{cursor:pointer;color:var(--head);font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--accent)}
+details[open] summary::after{content:"－"}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+details .a{padding-top:10px;display:flex;flex-direction:column;gap:6px}
+
+.closing{text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center}
+.closing p{font-family:var(--f-display);color:var(--head);font-size:18px;line-height:1.8}
+.closing .btn{align-self:center}
+
+.legend{font-size:12px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--card)}
+
+@media (max-width:420px){
+  .toc a{font-size:11px}
+  .hero h1{font-size:26px}
+}
+</style>
+
+<div class="wrap">
+
+  <p class="legend">これは下書きです。<span class="todo">黄色</span>の部分は gri の実際の数字・URL に差しかえてください。画像の枠には、実際の写真やスクリーンショットを入れます。</p>
+
+  <header class="hero">
+    <span class="eyebrow">HOW TO RENT</span>
+    <h1>レンタルの流れ</h1>
+    <p>ご予約から返送まで、4つのステップです。<br>はじめての方も、この順番どおりに進めば大丈夫です。</p>
+  </header>
+
+  <nav aria-label="ステップ一覧">
+    <ol class="toc">
+      <li><a href="#step1"><b>01</b>予約する</a></li>
+      <li><a href="#step2"><b>02</b>受け取る</a></li>
+      <li><a href="#step3"><b>03</b>飾って撮る</a></li>
+      <li><a href="#step4"><b>04</b>返送する</a></li>
+    </ol>
+  </nav>
+
+  <section class="promise" aria-labelledby="promise-h">
+    <h2 id="promise-h">gri のレンタルで、はじめから決まっていること</h2>
+    <ul>
+      <li><span>✓</span><div><strong>破損してもご負担0円。</strong>規約の範囲内のご使用なら、後日の請求はありません。保証はレンタル料金に含まれています。</div></li>
+      <li><span>✓</span><div><strong>返送は配送業者を選べます。</strong>集荷でも持ち込みでも、最大19時までに出せばOKです。</div></li>
+      <li><span>✓</span><div><strong>返送をLINEで報告すると、次回使える1,000円OFFクーポン</strong>をその場でお送りします。</div></li>
+    </ul>
+  </section>
+
+  <!-- STEP 1 -->
+  <section class="step" id="step1">
+    <div class="step-head"><span class="step-num">01</span><h2>予約する</h2></div>
+
+    <div class="sub">
+      <span class="sub-num">1</span><h3>デザインを選ぶ</h3>
+      <div class="sub-body">
+        <p>お誕生日・ハーフバースデーなど、記念日に合わせてデザインを選びます。写真を押すと、それぞれの商品ページが開きます。</p>
+        <div class="ph">デザインごとの写真を横に並べる<br>（各商品ページへリンク）</div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <span class="sub-num">2</span><h3>日程を選ぶ</h3>
+      <div class="sub-body">
+        <p>レンタルは<strong>2泊3日が基本</strong>です。ご利用日（お誕生日の撮影をする日）の<strong>前日にお届け</strong>し、ご利用日の翌日に返送していただきます。</p>
+        <p>通常は金・土・日のご利用です。平日をご希望の場合は、LINEからご相談ください。</p>
+        <p class="note">人気のデザインと土日は、2ヶ月ほど前から埋まりはじめます。</p>
+        <div class="ph">STORES の商品ページで日程を選ぶ画面のスクリーンショット</div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <span class="sub-num">3</span><h3>お助けアイテムを追加する（必要な方だけ）</h3>
+      <div class="sub-body">
+        <p>まだお座りが安定しないお子さまには、クーファン・バンボ・チェアなどもあわせてレンタルできます。座る場所が決まると、撮影がぐっと楽になります。</p>
+        <div class="ph">オプション選択画面のスクリーンショット</div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <span class="sub-num">4</span><h3>注文・お支払い</h3>
+      <div class="sub-body">
+        <p>お支払いが終わると、ご入力いただいたメールアドレスに注文確認メールが自動で届きます。届かないときは、迷惑メールフォルダもご確認ください。</p>
+        <p>ご注文後は、LINEの「ご注文の報告」から一言お知らせください。発送前のお知らせや返送のご案内を、LINEでお届けします。</p>
+        <a class="btn ghost" href="#">LINEでご注文を報告する <span class="todo">LINE URL</span></a>
+      </div>
+    </div>
+
+    <div class="sub">
+      <span class="sub-num">5</span><h3>発送のお知らせを待つ</h3>
+      <div class="sub-body">
+        <p>発送が済むと、追跡番号つきの発送完了メールをお送りします。メール内の番号から、お荷物の配送状況を確認できます。</p>
+        <p><span class="todo">〇〇県</span>から全国へお届けします。<span class="todo">北海道・沖縄・離島は追加送料 〇〇円</span></p>
+      </div>
+    </div>
+
+    <div class="card" aria-labelledby="tl-h">
+      <h3 id="tl-h">2泊3日の場合のスケジュール</h3>
+      <ol class="tl">
+        <li><span class="day">1日目<small>お届け日</small></span><span class="what"><b>荷物を受け取り、中身を確認</b>届いたその日のうちに、そろっているか確認します。夜のうちに仮置きしておくと、翌日あわてません。</span></li>
+        <li class="hl"><span class="day">2日目<small>ご利用日</small></span><span class="what"><b>飾って、撮影する日</b>お子さまのご機嫌に合わせて、何度でも撮り直せます。</span></li>
+        <li><span class="day">3日目<small>返送日</small></span><span class="what"><b>箱に戻して返送</b>当日発送になるよう、最大19時までにお出しください。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="step" id="step2">
+    <div class="step-head"><span class="step-num">02</span><h2>受け取る</h2></div>
+    <p>届いた日のうちに、同封の説明書ファイルと見くらべて中身がそろっているか確認してください。足りないもの・壊れているものがあれば、その日のうちにLINEでご連絡ください。</p>
+    <p>飾るスペースの目安は、<strong>壁ぎわに畳1枚分</strong>ほどです。</p>
+    <div class="ph">箱を開けたときの写真（中身がわかるもの）</div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="step" id="step3">
+    <div class="step-head"><span class="step-num">03</span><h2>飾って撮る</h2></div>
+    <p>説明書ファイルの完成写真を見ながら飾りつけます。きれいに撮れるコツは3つです。</p>
+    <div class="sub">
+      <span class="sub-num">1</span><h3>窓ぎわの自然光で撮る</h3>
+      <div class="sub-body"><p>昼間の明るい時間がおすすめです。逆光になるときは、レースカーテンごしにすると光がやわらかくなります。</p></div>
+    </div>
+    <div class="sub">
+      <span class="sub-num">2</span><h3>お子さまは装飾の30cmほど手前に</h3>
+      <div class="sub-body"><p>装飾から少し離して座らせると、背景がふんわりぼけて、スタジオのような仕上がりになります。</p></div>
+    </div>
+    <div class="sub">
+      <span class="sub-num">3</span><h3>「引き」と「寄り」を両方撮る</h3>
+      <div class="sub-body"><p>全体が入った写真と、表情を大きく写した写真。この2枚があると、アルバムが華やかになります。</p></div>
+    </div>
+    <p class="note">飾ったまま夜まで置いておいて大丈夫です。お昼寝のあと、もう一度撮ることもできます。</p>
+    <div class="ph">実際のご利用写真（顔が写らないもの、または掲載許可済みのもの）</div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="step" id="step4">
+    <div class="step-head"><span class="step-num">04</span><h2>返送する</h2></div>
+
+    <div class="sub">
+      <span class="sub-num">1</span><h3>届いた箱に戻す</h3>
+      <div class="sub-body"><p>説明書ファイルの「梱包の手順」のとおりに戻します。届いたときと同じくらいを目安にすれば大丈夫です。</p></div>
+    </div>
+    <div class="sub">
+      <span class="sub-num">2</span><h3>同梱の送り状を貼る</h3>
+      <div class="sub-body"><p>返送用の送り状が箱に入っています。返送料はお客さまのご負担です。</p></div>
+    </div>
+    <div class="sub">
+      <span class="sub-num">3</span><h3>返送日の19時までに出す</h3>
+      <div class="sub-body"><p>当日発送になるよう、最短の日時指定でお出しください。配送業者の指定はなく、自宅への集荷・お店への持ち込み、どちらでも構いません。</p></div>
+    </div>
+    <div class="sub">
+      <span class="sub-num">4</span><h3>LINEで返送を報告する</h3>
+      <div class="sub-body">
+        <p>LINEのメニュー「返送の報告」から1分で報告できます。報告が届くと、<strong>次回使える1,000円OFFクーポン</strong>をその場でお送りします。</p>
+        <a class="btn" href="#">返送を報告する <span class="todo">LINE URL</span></a>
+      </div>
+    </div>
+
+    <div class="card" aria-labelledby="size-h">
+      <h3 id="size-h">返送する箱のサイズ</h3>
+      <p class="note">返送料は箱のサイズで決まります。お出しする前の目安にしてください。</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>箱のサイズ</th><th>デザイン</th></tr></thead>
+          <tbody>
+            <tr><td><span class="todo">〇〇サイズ</span></td><td><span class="todo">該当デザイン名</span></td></tr>
+            <tr><td><span class="todo">〇〇サイズ</span></td><td><span class="todo">該当デザイン名</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="step" id="faq" aria-labelledby="faq-h">
+    <div class="step-head"><h2 id="faq-h">困ったときは</h2></div>
+    <div>
+      <details>
+        <summary>注文確認メールが届かない</summary>
+        <div class="a"><p>迷惑メールフォルダをご確認ください。見つからないときはLINEでご連絡いただければ、ご登録のメールアドレスをお調べします。</p></div>
+      </details>
+      <details>
+        <summary>予定の日に荷物が届かない</summary>
+        <div class="a"><p>天候や交通状況で、まれに遅れることがあります。発送完了メールの追跡番号で配達状況をご確認ください。わからないときは、LINEからお問い合わせください。</p></div>
+      </details>
+      <details>
+        <summary>使っている途中で壊れてしまった</summary>
+        <div class="a"><p>規約の範囲内のご使用なら、<strong>ご負担は0円</strong>です。次の方のために、わかる範囲でLINEからお知らせください。返送報告フォームでもお伝えいただけます。</p></div>
+      </details>
+      <details>
+        <summary>返送が遅れそう</summary>
+        <div class="a"><p>遅れるとわかった時点で、LINEでご連絡ください。次の方へのお届けに関わるため、早めのご連絡が助かります。</p><p class="note"><span class="todo">延長料金：1日 〇〇円</span></p></div>
+      </details>
+    </div>
+    <p class="note">LINEのお問い合わせは24時間受け付けています。お返事は<span class="todo">〇時〜〇時</span>、<span class="todo">〇時間以内</span>を目安にお送りします。</p>
+    <a class="btn ghost" href="#">LINEで問い合わせる <span class="todo">LINE URL</span></a>
+  </section>
+
+  <section class="closing">
+    <p>いつものお部屋が、<br>その日だけのフォトスタジオに。</p>
+    <a class="btn" href="#">デザインを見る <span class="todo">STORES URL</span></a>
+  </section>
+
+</div>
