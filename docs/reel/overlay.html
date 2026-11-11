@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:wght@400;500&family=Zen+Maru+Gothic:wght@500;700&display=block">
+<style>
+/* 1080x1920 のリール用テロップ。window.setTime(t) で t 秒時点の状態を描く（CSSアニメは使わない） */
+:root{--ink:#6f5a4d;--head:#8a6f60;--coral:#c0705d;--paper:#fffdfb;
+  --peach:#f8d2b4;--mint:#d3e6d8;--butter:#f9efbd;--blush:#f9e1d9}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:transparent}
+.scene{position:absolute;inset:0;display:none}
+.scene.on{display:block}
+.solid{display:none;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:34px;padding:0 110px 160px}
+.solid.on{display:flex}
+.ln{opacity:0;will-change:opacity,transform}
+.jp{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;color:var(--ink);font-size:78px;line-height:1.45;letter-spacing:.06em}
+.jp.mid{font-size:60px}
+.jp.big{font-size:118px;color:var(--coral);letter-spacing:.08em}
+.sm{font-family:"Zen Maru Gothic",sans-serif;font-weight:500;color:var(--head);font-size:38px;line-height:1.7;letter-spacing:.05em}
+.en{font-family:"Josefin Sans",sans-serif;font-weight:400;letter-spacing:.32em;color:var(--coral);font-size:40px;text-transform:uppercase;padding-left:.32em}
+.rule{width:3px;height:70px;background:#e5b8a5}
+.q{font-family:"Cormorant Garamond",serif;color:var(--coral);font-size:150px;line-height:.8}
+.ans{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;color:var(--paper);background:var(--coral);border-radius:999px;font-size:66px;padding:22px 64px;letter-spacing:.08em}
+/* 動画の上：画面の下から3分の1あたり（Instagramのボタンにかからない位置） */
+.band{position:absolute;left:90px;right:150px;top:1080px;background:rgba(255,253,251,.86);border-radius:36px;
+  padding:52px 40px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+.logo{font-family:"Josefin Sans",sans-serif;font-weight:600;letter-spacing:.14em;color:var(--ink);font-size:76px}
+.logo small{display:block;font-weight:300;font-size:26px;letter-spacing:.5em;color:var(--head);margin-top:8px}
+</style></head><body>
+
+<!-- 1 hook (video) 0-2.5 -->
+<section class="scene" data-start="0" data-end="2.5"><div class="band">
+  <div class="ln jp" data-at=".2">おうちが、</div><div class="ln jp" data-at=".7">フォトスタジオに。</div></div></section>
+
+<!-- 2 question (peach) 2.5-5 -->
+<section class="scene solid" data-start="2.5" data-end="5" style="background:var(--peach)">
+  <div class="ln q" data-at="0">Q.</div>
+  <div class="ln jp" data-at=".25">レンタルって<br>むずかしそう…？</div>
+  <div class="ln ans" data-at="1.25">4ステップだけです</div></section>
+
+<!-- 3 step1 (mint) 5-8 -->
+<section class="scene solid" data-start="5" data-end="8" style="background:var(--mint)">
+  <div class="ln en" data-at="0">Step 01</div><div class="ln rule" data-at=".15"></div>
+  <div class="ln jp big" data-at=".3">予約する</div>
+  <div class="ln jp mid" data-at=".8">デザインと日程を<br>選んで注文</div>
+  <div class="ln sm" data-at="1.3">2泊3日〜</div></section>
+
+<!-- 4 step2 (butter) 8-10.5 -->
+<section class="scene solid" data-start="8" data-end="10.5" style="background:var(--butter)">
+  <div class="ln en" data-at="0">Step 02</div><div class="ln rule" data-at=".15"></div>
+  <div class="ln jp big" data-at=".3">受け取る</div>
+  <div class="ln jp mid" data-at=".8">ご利用日の“前日”に<br>お届け</div>
+  <div class="ln sm" data-at="1.25">大阪から全国へ</div></section>
+
+<!-- 5 step3 (video) 10.5-14 -->
+<section class="scene" data-start="10.5" data-end="14"><div class="band">
+  <div class="ln en" data-at=".1">Step 03</div>
+  <div class="ln jp" data-at=".35" style="color:var(--coral)">飾って撮る</div>
+  <div class="ln jp mid" data-at=".9">説明書の写真を見ながら<br>並べるだけ</div></div></section>
+
+<!-- 6 child (video) 14-17.5 -->
+<section class="scene" data-start="14" data-end="17.5"><div class="band" style="top:250px">
+  <div class="ln jp mid" data-at=".2">お子さまのご機嫌に<br>合わせて</div>
+  <div class="ln jp" data-at=".8" style="color:var(--coral)">何度でも撮り直せる</div></div></section>
+
+<!-- 7 step4 (blush) 17.5-21.5 -->
+<section class="scene solid" data-start="17.5" data-end="21.5" style="background:var(--blush)">
+  <div class="ln en" data-at="0">Step 04</div><div class="ln rule" data-at=".15"></div>
+  <div class="ln jp big" data-at=".3">返送する</div>
+  <div class="ln jp mid" data-at=".8">届いた箱に戻して<br>送り状を貼るだけ</div>
+  <div class="ln sm" data-at="1.5">ヤマト運輸は19時まで<br>ゆうパックは郵便局の当日発送の時間内に</div></section>
+
+<!-- 8 damage Q (peach) 21.5-25.5 -->
+<section class="scene solid" data-start="21.5" data-end="25.5" style="background:var(--peach)">
+  <div class="ln q" data-at="0">Q.</div>
+  <div class="ln jp" data-at=".25">壊しちゃったら…？</div>
+  <div class="ln jp big" data-at="1.25">ご負担0円</div>
+  <div class="ln sm" data-at="1.8">規約の範囲内のご使用なら<br>後日の請求はありません</div></section>
+
+<!-- 9 coupon (mint) 25.5-28 -->
+<section class="scene solid" data-start="25.5" data-end="28" style="background:var(--mint)">
+  <div class="ln jp mid" data-at="0">返送をLINEで報告すると</div>
+  <div class="ln sm" data-at=".35">次回のご注文で使える</div>
+  <div class="ln jp big" data-at=".7">1,000円OFF</div></section>
+
+<!-- 10 closing (video) 28-31 -->
+<section class="scene" data-start="28" data-end="31"><div class="band">
+  <div class="ln logo" data-at=".2">gri birthdayart<small>BIRTHDAY RENTAL</small></div>
+  <div class="ln sm" data-at=".8" style="color:var(--ink)">ご予約はプロフィールのリンクから</div></div></section>
+
+<script>
+const scenes=[...document.querySelectorAll('.scene')];
+const ease=x=>1-Math.pow(1-x,3);
+window.setTime=t=>{
+  for(const s of scenes){
+    const a=+s.dataset.start,b=+s.dataset.end,on=t>=a&&t<b;
+    s.classList.toggle('on',on); if(!on) continue;
+    const lt=t-a;
+    for(const el of s.querySelectorAll('.ln')){
+      const p=Math.min(1,Math.max(0,(lt-(+el.dataset.at))/0.45)),e=ease(p);
+      el.style.opacity=e; el.style.transform=`translateY(${(1-e)*26}px)`;
+    }
+  }
+};
+window.setTime(0);
+</script></body></html>
